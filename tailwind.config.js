@@ -6,6 +6,9 @@ export default {
       colors: {
         "Dark-Emerald": "#243E36",
       },
+      fontSize:{
+        '12xl' : '12rem'
+      }
     },
   },
   plugins: [],
