@@ -7,19 +7,19 @@
             <span>Worldwide Cuisine Explorer</span></router-link
           >
 
-          <div :class="['navbar', { 'navbar-open': isMenuOpen }]">
-            <div class="cursor-pointer" @click="toggleMenu">
+          <div :class=" { 'navbar-open': isMenuOpen }">
+            <div class="cursor-pointer sm:hidden" @click="toggleMenu">
               <span
-                :class="{ 'rotate-45 translate-x-1 translate-y-3': isMenuOpen }"
+                :class="{ 'rotate-45 translate-x-1 translate-y-3 transition-transform': !isMenuOpen }"
                 class="w-6 h-1 mb-1 block bg-white"
               ></span>
               <span
-                :class="{ hidden: isMenuOpen }"
+                :class="{ hidden: !isMenuOpen }"
                 class="w-6 h-1 mb-1 block bg-white"
               ></span>
               <span
                 :class="{
-                  '-rotate-45 translate-x-1 translate-y-1': isMenuOpen,
+                  '-rotate-45 translate-x-1 translate-y-1 transition-transform': !isMenuOpen,
                 }"
                 class="w-6 h-1 block bg-white"
               ></span>
@@ -30,10 +30,11 @@
         <div>
           <ul
             class="text-white sm:flex max-sm:bg-black max-sm:mt-5 max-sm:p-5 max-sm:text-center max-sm:text-lg max-sm: max-sm:rounded-br-2xl max-sm:rounded-bl-2xl max-sm:w-full"
-            :class="{ show: isMenuOpen }"
+            :class="{ ' max-sm:hidden transition-transform ': isMenuOpen }"
+            
           >
             <li class="sm:mr-3">
-              <router-link to="/about">Search</router-link>
+              <router-link to="/search">Search</router-link>
             </li>
             <li class="sm:mr-3">
               <router-link to="/">Home</router-link>
