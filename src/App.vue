@@ -33,11 +33,12 @@
             :class="{ ' max-sm:hidden transition-transform ': isMenuOpen }"
             
           >
-            <li class="sm:mr-3">
-              <router-link to="/search">Search</router-link>
-            </li>
+        
             <li class="sm:mr-3">
               <router-link to="/">Home</router-link>
+            </li>
+            <li class="sm:mr-3">
+              <router-link to="/search">Search</router-link>
             </li>
             <li><router-link to="/about">About</router-link></li>
           </ul>
