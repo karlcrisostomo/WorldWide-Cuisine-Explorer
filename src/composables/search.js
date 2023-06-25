@@ -12,7 +12,6 @@ export default {
     const router = useRouter();
     const isLoading = ref(false);
     const errorMessage = ref(false);
-   
 
     const toggleDropdown = () => {
       dropDown.value = !dropDown.value;
@@ -25,13 +24,18 @@ export default {
     });
 
     const selectOption = (option) => {
+      
       selectedCuisine.value = option;
-      toggleDropdown();
+   
+     
     };
+
+    // Watcher to update v-model value when selectedCuisine changes
 
     const fetchRecipes = async () => {
       try {
         isLoading.value = true;
+ 
         const response = await axios.get(
           "https://api.spoonacular.com/recipes/complexSearch",
           {
@@ -96,7 +100,6 @@ export default {
       isLoading,
       errorMessage,
       selectOption,
-      
     };
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class=" mt-12 bg-white">
+  <div class="mt-12 bg-white">
     <div class="">
       <form class="flex justify-center">
         <img
@@ -13,7 +13,7 @@
           type="search"
           v-model="searchQuery"
           placeholder="Search for a recipe"
-          @keyup.enter="fetchRecipes"
+          @keyup="fetchRecipes"
         />
         <div>
           <div>
@@ -69,7 +69,7 @@
         v-for="recipe in recipes"
         :key="recipe.id"
       >
-        <figure class="card-content" v-motion-slide-top :delay="1000">
+        <figure class="card-content">
           <img
             class="recipe-img"
             :src="recipe.image"
