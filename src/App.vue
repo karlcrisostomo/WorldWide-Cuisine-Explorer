@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-Dark-Emerald">
-    <header class="p-4 lg:max-w-5xl mx-auto">
+  <div class="bg-Dark-Emerald m-0 p-0 ">
+    <header class="p-4 lg:max-w-5xl container m-auto">
       <nav class="container mx-auto sm:flex sm:justify-between">
         <div class="flex justify-between text-white">
           <router-link to="/">

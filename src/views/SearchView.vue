@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-12 bg-white">
-    <div class="">
-      <form class="flex justify-center">
+  <div class="mt-1 bg-white p-4">
+    <div class="pb-40 flex  justify-center">
+      <form class="flex">
         <img
           src="../assets/Search.svg"
           class="cursor-pointer"
@@ -9,25 +9,28 @@
           alt=""
         />
         <input
-          class="rounded-lg outline-none h-9 border-none"
+          class=" outline-none bg-transparent h-9 border-none appearance-none "
           type="search"
           v-model="searchQuery"
-          placeholder="Search for a recipe"
+          placeholder="Search for recipe..."
           @keyup="fetchRecipes"
         />
         <div>
-          <div>
+          <div class=" flex -ml-5 mt-2">
+            <div class="ml-2" v-if="selectedCuisine !== ''">
+              {{ selectedCuisine }}
+            </div>
             <img
-              class="cursor-pointer"
+              class="cursor-pointer transition-shadow -mt-1"
               @click="toggleDropdown"
               :src="dropDownIcon"
               alt=""
             />
           </div>
-          <div class="">
-            <div :class="{ ' hidden ': dropDown }">
+          <div class=" transition-transform p-4 absolute top-36 w-1/2 left-1/2 rounded-lg transform -translate-x-1/2">
+            <div :class="{ ' hidden bg-green-200 ': dropDown }">
               <div
-                class="bg-green-200 p-4 absolute top-40 left-1/2 rounded-lg transform -translate-x-1/2"
+                
               >
                 <div
                   @click="selectOption('')"
@@ -56,39 +59,32 @@
               </div>
             </div>
           </div>
-          <div class="ml-2" v-if="selectedCuisine !== ''">
-            Selected: {{ selectedCuisine }}
-          </div>
         </div>
       </form>
     </div>
 
-    <div class="hero">
-      <article
-        class="card-container"
-        v-for="recipe in recipes"
-        :key="recipe.id"
-      >
-        <figure class="card-content">
+    <div class="grid grid-cols-2 p-4 max-w-4xl container mx-auto">
+      <article class="" v-for="recipe in recipes" :key="recipe.id">
+        <figure class="p-6 rounded-lg mb-4">
           <img
-            class="recipe-img"
+            class="cursor-pointer w-full"
             :src="recipe.image"
             :alt="recipe.title"
             @click="showIngredients"
           />
-          <div class="recipe-title-container">
-            <p class="recipe-title">{{ recipe.title }}</p>
+          <div class="text-center bg-Dark-Emerald p-6 text-white -mt-1">
+            <p>{{ recipe.title }}</p>
           </div>
         </figure>
       </article>
 
-      <div id="error-message" v-if="errorMessage">
-        <h1 style="text-align: center">
-          An error occurred. Please try again later
-        </h1>
-      </div>
     </div>
+    <div class=" text-center" id="error-message" v-if="errorMessage">
+        <h1 class=" font-bold ">An error occurred. Please try again later</h1>
+      </div>
   </div>
+  
+
 </template>
 
 <script src="@/composables/search"></script>

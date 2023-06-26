@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default {
   setup() {
-    const dropDown = ref(false);
+    const dropDown = ref(true);
     const recipes = ref([]);
     const searchQuery = ref("");
     const selectedCuisine = ref("");
@@ -19,8 +19,8 @@ export default {
 
     const dropDownIcon = computed(() => {
       return dropDown.value
-        ? require("@/assets/ic_baseline-arrow-drop-up.svg")
-        : require("@/assets/ic_baseline-arrow-drop-down.svg");
+        ? require("@/assets/ic_baseline-arrow-drop-down.svg")
+        : require("@/assets/ic_baseline-arrow-drop-up.svg");
     });
 
     const selectOption = (option) => {
@@ -30,7 +30,7 @@ export default {
      
     };
 
-    // Watcher to update v-model value when selectedCuisine changes
+  
 
     const fetchRecipes = async () => {
       try {
